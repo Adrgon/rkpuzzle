@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle Rick and Morty</title>
+    <!-- Comentamos temporalmente el manifest y el Service Worker -->
+    <!-- <link rel="manifest" href="manifest.json"> -->
+    <link rel="stylesheet" href="css/styles.css">
+    <meta name="theme-color" content="#4a6cf7">
+    <!-- <link rel="apple-touch-icon" href="assets/icons/icon-192x192.png"> -->
+</head>
+<body>
+    <div id="app">
+        <!-- Pantalla de inicio -->
+        <div id="start-screen" class="screen active">
+            <div class="screen-content">
+                <h1><span>Puzzle</span>Rick and Morty</h1>
+                <div class="logo-container">
+                    <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="Rick and Morty" class="logo-image">
+                </div>
+                <button id="start-game" class="primary-button">Comenzar</button>
+                <button id="view-completed" class="primary-button">Personajes Completados</button>
+            </div>
+        </div>
+
+        <!-- Pantalla de selección de personaje -->
+        <div id="character-select-screen" class="screen">
+            <div class="screen-content">
+                <h2>Selecciona un Personaje</h2>
+                <div id="character-grid" class="character-grid">
+                    <div class="character-grid-header">Personajes de Rick and Morty</div>
+                    <!-- Los personajes se cargarán dinámicamente aquí -->
+                </div>
+                <div class="pagination-controls">
+                    <button id="prev-page" class="pagination-button">Anterior</button>
+                    <span id="page-info">Página 1</span>
+                    <button id="next-page" class="pagination-button">Siguiente</button>
+                </div>
+                <button id="back-to-start" class="secondary-button">Volver al Inicio</button>
+            </div>
+        </div>
+
+        <!-- Pantalla del juego -->
+        <div id="game-screen" class="screen">
+            <div class="screen-content">
+                <h2>Multiverso Rick and Morty</h2>
+                <div id="puzzle-container"></div>
+                <div class="pieces-instructions">
+                    <p>Piezas disponibles:</p>
+                </div>
+                <div id="pieces-container"></div>
+                <button id="back-to-character-select" class="secondary-button">Cambiar personaje</button>
+            </div>
+        </div>
+
+        <!-- Pantalla de victoria -->
+        <div id="victory-screen" class="screen">
+            <div class="screen-content">
+                <h2>¡Felicidades!</h2>
+                <div class="victory-image">
+                    <img src="" alt="Personaje" class="victory-logo">
+                </div>
+                <p>¡Has completado el puzzle!</p>
+                <button id="play-again" class="primary-button">Jugar de nuevo</button>
+            </div>
+        </div>
+
+        <!-- Pantalla de personajes completados -->
+        <div id="completed-screen" class="screen">
+            <div class="screen-content">
+                <h2>Personajes Completados</h2>
+                <div id="completed-characters" class="character-grid">
+                    <div class="character-grid-header">Tus personajes completados</div>
+                    <!-- Los personajes completados se cargarán dinámicamente aquí -->
+                </div>
+                <button id="back-to-start-from-completed" class="secondary-button">Volver al Inicio</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para mostrar detalles del personaje -->
+    <div id="character-modal" class="character-modal">
+        <div class="character-modal-content">
+            <div class="character-modal-header">
+                <h3 id="modal-character-name"></h3>
+                <button id="modal-close" class="character-modal-close">&times;</button>
+            </div>
+            <div class="character-modal-body">
+                <img id="modal-character-image" class="character-modal-image" src="" alt="">
+                <div class="character-modal-info">
+                    <p><strong>Estado:</strong> <span id="modal-character-status"></span></p>
+                    <p><strong>Especie:</strong> <span id="modal-character-species"></span></p>
+                    <p><strong>Origen:</strong> <span id="modal-character-origin"></span></p>
+                    <p><strong>Ubicación:</strong> <span id="modal-character-location"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <!-- Comentamos el registro del Service Worker -->
+    <!--
+    <script>
+        // Registrar el Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registrado con éxito:', registration);
+                    })
+                    .catch(error => {
+                        console.log('Error al registrar el ServiceWorker:', error);
+                    });
+            });
+        }
+    </script>
+    -->
+</body>
+</html> 
