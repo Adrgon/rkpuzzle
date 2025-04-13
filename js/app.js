@@ -465,12 +465,22 @@ class PuzzleGame {
             // Actualizar la imagen y el mensaje en la pantalla de victoria
             const victoryImage = document.querySelector('.victory-logo');
             const victoryMessage = document.querySelector('.victory-message');
+            const characterName = document.querySelector('.victory-character-name');
+            
             victoryImage.src = this.selectedCharacter.image;
             victoryImage.alt = this.selectedCharacter.name;
+            characterName.textContent = this.selectedCharacter.name;
             victoryMessage.textContent = `¡Has conseguido a ${this.selectedCharacter.name}!`;
             
             // Mostrar la pantalla de victoria después de un breve retraso
-            setTimeout(() => this.showScreen('victory-screen'), 500);
+            setTimeout(() => {
+                this.showScreen('victory-screen');
+                
+                // Navegar automáticamente a la selección de personajes después de 5 segundos
+                setTimeout(() => {
+                    this.showScreen('character-select-screen');
+                }, 5000);
+            }, 500);
         }
     }
 
@@ -478,12 +488,6 @@ class PuzzleGame {
     displayCompletedCharacters() {
         const completedGrid = document.getElementById('completed-characters');
         completedGrid.innerHTML = ''; // Limpiar la cuadrícula
-        
-        // Mantener el encabezado
-        const header = document.createElement('div');
-        header.className = 'character-grid-header';
-        header.textContent = 'Tus personajes completados';
-        completedGrid.appendChild(header);
         
         if (this.completedCharacters.length === 0) {
             const noCompleted = document.createElement('div');

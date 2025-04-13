@@ -27,7 +27,7 @@
         <!-- Pantalla de selección de personaje -->
         <div id="character-select-screen" class="screen">
             <div class="screen-content">
-                <h2>Selecciona un Personaje</h2>
+                <h2>Puzzle Personajes</h2>
                 <div id="character-grid" class="character-grid">
                     <div class="character-grid-header">Personajes de Rick and Morty</div>
                     <!-- Los personajes se cargarán dinámicamente aquí -->
@@ -61,8 +61,12 @@
                 <div class="victory-image">
                     <img src="" alt="Personaje" class="victory-logo">
                 </div>
-                <p>¡Has completado el puzzle!</p>
-                <button id="play-again" class="primary-button">Jugar de nuevo</button>
+                <h3 class="victory-character-name"></h3>
+                <p class="victory-message"></p>
+                <div class="victory-buttons">
+                    <button id="play-again" class="primary-button">Jugar de nuevo</button>
+                    <button id="back-to-character-select" class="secondary-button">Seleccionar otro personaje</button>
+                </div>
             </div>
         </div>
 
@@ -71,7 +75,6 @@
             <div class="screen-content">
                 <h2>Personajes Completados</h2>
                 <div id="completed-characters" class="character-grid">
-                    <div class="character-grid-header">Tus personajes completados</div>
                     <!-- Los personajes completados se cargarán dinámicamente aquí -->
                 </div>
                 <button id="back-to-start-from-completed" class="secondary-button">Volver al Inicio</button>
