@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Puzzle Rick and Morty</title>
+    <title>Rick and Morty</title>
     <!-- Comentamos temporalmente el manifest y el Service Worker -->
     <!-- <link rel="manifest" href="manifest.json"> -->
     <link rel="stylesheet" href="css/styles.css">
@@ -15,7 +15,7 @@
         <!-- Pantalla de inicio -->
         <div id="start-screen" class="screen active">
             <div class="screen-content">
-                <h1><span>Puzzle</span>Rick and Morty</h1>
+                <h1>Rick and Morty</h1>
                 <div class="logo-container">
                     <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="Rick and Morty" class="logo-image">
                 </div>
@@ -37,18 +37,16 @@
                     <span id="page-info">Página 1</span>
                     <button id="next-page" class="pagination-button">Siguiente</button>
                 </div>
-                <button id="back-to-start" class="secondary-button">Volver al Inicio</button>
+                <button id="back-to-start" class="secondary-button">Volver</button>
             </div>
         </div>
 
         <!-- Pantalla del juego -->
         <div id="game-screen" class="screen">
             <div class="screen-content">
-                <h2>Multiverso Rick and Morty</h2>
+                <h2>Multiverso</h2>
                 <div id="puzzle-container"></div>
-                <div class="pieces-instructions">
-                    <p>Piezas disponibles:</p>
-                </div>
+
                 <div id="pieces-container"></div>
                 <button id="back-to-character-select" class="secondary-button">Cambiar personaje</button>
             </div>
@@ -65,7 +63,6 @@
                 <p class="victory-message"></p>
                 <div class="victory-buttons">
                     <button id="play-again" class="primary-button">Jugar de nuevo</button>
-                    <button id="back-to-character-select" class="secondary-button">Seleccionar otro personaje</button>
                 </div>
             </div>
         </div>
@@ -77,7 +74,7 @@
                 <div id="completed-characters" class="character-grid">
                     <!-- Los personajes completados se cargarán dinámicamente aquí -->
                 </div>
-                <button id="back-to-start-from-completed" class="secondary-button">Volver al Inicio</button>
+                <button id="back-to-start-from-completed" class="secondary-button">Volver</button>
             </div>
         </div>
     </div>
